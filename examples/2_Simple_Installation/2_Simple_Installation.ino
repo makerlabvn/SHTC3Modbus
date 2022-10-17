@@ -10,10 +10,10 @@
 
 /* ------------------------------------------------------------------------- */
 
-#define RX_SHT 11
-#define TX_SHT 12
+#define RX_SHT 2
+#define TX_SHT 3
 
-SHTC3 demo(RX_SHT, TX_SHT);
+SHTC3 demo(RX_SHT, TX_SHT, BAUD_4800, 0x01);
 
 String inputData = "";
 

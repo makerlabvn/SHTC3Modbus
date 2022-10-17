@@ -11,14 +11,14 @@
 
 /* ------------------------------------------------------------------------- */
 
-#define RX_SHT 11
-#define TX_SHT 12
+#define RX_SHT 2
+#define TX_SHT 3
 
-/* Using with SoftwareSerial, default (RX=11) and (TX=12) */
-SHTC3 demo(RX_SHT, TX_SHT);
+/* Using with SoftwareSerial, default (RX=2) and (TX=3) */
+SHTC3 demo(RX_SHT, TX_SHT, BAUD_4800, 0x01);
 
 /* Using with HardwareSerial, default (RX=0) and (TX=1) */
-// SHTC3 demo(0x01);
+// SHTC3 demo(BAUD_4800, 0x01);
 
 /* ------------------------------------------------------------------------- */
 
