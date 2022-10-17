@@ -20,22 +20,24 @@
 
 /* ------------------------------ Constructor ------------------------------ */
 
-SHTC3::SHTC3(uint8_t baud, uint8_t addr)
+// SHTC3::SHTC3(uint8_t baud, uint8_t addr)
+SHTC3::SHTC3(uint8_t addr)
 {
   port = &Serial;
   typeSerial = HARD_SERIAL;
 
-  _baud = baud;
+  // _baud = baud;
   _addr = addr;
 }
 
-SHTC3::SHTC3(uint8_t rxPin, uint8_t txPin, uint8_t baud, uint8_t addr)
+// SHTC3::SHTC3(uint8_t rxPin, uint8_t txPin, uint8_t baud, uint8_t addr)
+SHTC3::SHTC3(uint8_t rxPin, uint8_t txPin, uint8_t addr)
 {
   SoftwareSerial *ss = new SoftwareSerial(rxPin, txPin);
   port = ss;
   typeSerial = SOFT_SERIAL;
 
-  _baud = baud;
+  // _baud = baud;
   _addr = addr;
 }
 
@@ -163,6 +165,11 @@ dataSHTC3 SHTC3::getData()
   return value;
 }
 
+dataSHTC3 SHTC3::getData(uint8_t addr)
+{
+  _addr = addr;
+  return this->getData();
+}
 /* ------------------------------- Read Data ------------------------------- */
 
 float SHTC3::readTemperature(bool isDegreeCelsius)

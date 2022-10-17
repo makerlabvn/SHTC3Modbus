@@ -1,4 +1,5 @@
 # SHTC3 Temperature Humidity Sensor Library
+Author: TrungKuro
 
 >Library sensor SHT3C RS485 Modbus RTU for **boards Arduino**.
 

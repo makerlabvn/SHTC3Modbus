@@ -97,8 +97,10 @@ private:
   uint16_t _timeOut = MIN_SHTC3_TIMEOUT;
 
 public:
-  SHTC3(uint8_t baud = BAUD_4800, uint8_t addr = 0x01);                                       // Constructor - HardwareSerial (RX=0) (TX=1)
-  SHTC3(uint8_t rxPin = 2, uint8_t txPin = 3, uint8_t baud = BAUD_4800, uint8_t addr = 0x01); // Constructor - SoftwareSerial (RX=2) (TX=3)
+  // SHTC3(uint8_t baud = BAUD_4800, uint8_t addr = 0x01);                                       // Constructor - HardwareSerial (RX=0) (TX=1)
+  // SHTC3(uint8_t rxPin = 11, uint8_t txPin = 12, uint8_t baud = BAUD_4800, uint8_t addr = 0x01); // Constructor - SoftwareSerial (RX=11) (TX=12)
+  SHTC3(uint8_t addr = 0x01);                                       // Constructor - HardwareSerial (RX=0) (TX=1)
+  SHTC3(uint8_t rxPin, uint8_t txPin, uint8_t addr = 0x01); // Constructor - SoftwareSerial (RX=11) (TX=12)
   virtual ~SHTC3() { delete port; }                                                           // Virtual Destructor
 
   /* Initialization */
@@ -107,6 +109,7 @@ public:
 
   /* Struct */
   dataSHTC3 getData();
+  dataSHTC3 getData(uint8_t addr);
 
   /* Read Data */
   float readTemperature(bool isDegreeCelsius = true);

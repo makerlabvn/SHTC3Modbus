@@ -40,7 +40,16 @@ void setup()
 void loop()
 {
   /* --------------------------------- [01] -------------------------------- */
-  dataSHTC3 data = demo.getData();
+  dataSHTC3 data = demo.getData(0x02);
+
+  Serial.print(data.temperatureC);
+  Serial.print(F("°C\t"));
+  Serial.print(data.temperatureF);
+  Serial.print(F("°F\t"));
+  Serial.print(data.humidity);
+  Serial.print(F("%\t\t\t"));
+  delay(10);
+  data = demo.getData(0x01);
 
   Serial.print(data.temperatureC);
   Serial.print(F("°C\t"));
@@ -50,18 +59,4 @@ void loop()
   Serial.println(F("%"));
 
   delay(1000);
-
-  /* --------------------------------- [02] -------------------------------- */
-  // Serial.print(demo.readTemperature()); // Measure °C
-  // Serial.println(F("°C"));
-
-  // Serial.print(demo.readTemperature(false)); // Measure °F
-  // Serial.println(F("°F"));
-
-  // Serial.print(demo.readHumidity());
-  // Serial.println(F("%"));
-
-  // Serial.println(F("--- --- ---"));
-
-  // delay(1000);
 }
