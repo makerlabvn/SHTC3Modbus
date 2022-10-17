@@ -48,7 +48,9 @@ void loop()
   Serial.print(F("°F\t"));
   Serial.print(data.humidity);
   Serial.print(F("%\t\t\t"));
-  delay(10);
+
+  delay(10); 
+
   data = demo.getData(0x01);
 
   Serial.print(data.temperatureC);
